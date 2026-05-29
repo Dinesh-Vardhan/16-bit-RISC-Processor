@@ -32,7 +32,6 @@ Designed and implemented a custom 16-bit multi-cycle RISC processor using Verilo
 
 ## Architecture
 The processor follows a multi-cycle execution flow:
-![Processor Architecture](screenshots/processor_architecture.png)
 
 Instruction Fetch → Decode → Register Read → Execute → Writeback → Memory
 
@@ -45,12 +44,6 @@ docs/         -> Additional documentation
 ```
 
 ## Simulation Results
-
-### Control FSM Waveform
-![FSM](screenshots/control_fsm_waveform.png)
-
-### Datapath Execution
-![Datapath](screenshots/datapath_execution.png)
 
 ### Control FSM Sequencing
 Shows the multi-cycle control flow of the processor.
