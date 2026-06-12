@@ -1,92 +1,217 @@
 # 16-bit RISC Processor using Verilog HDL
 
 ## Overview
-Designed and implemented a custom 16-bit multi-cycle RISC Processor using Verilog HDL. The processor supports arithmetic, logical, comparison, shift, load, and branch instructions through an FSM-based control architecture. The design was developed and verified using Xilinx Vivado.
 
-## Features
+This project presents the design and implementation of a custom 16-bit Multi-Cycle RISC Processor using Verilog HDL. The processor supports arithmetic, logical, comparison, shift, load, and branch instructions through an FSM-based control architecture.
+
+The design was developed following a modular RTL methodology and verified using Xilinx Vivado simulation. The processor consists of dedicated modules for instruction decoding, register file operations, ALU execution, program counter control, and FSM-based instruction sequencing.
+
+---
+
+## Key Features
+
 - Custom 16-bit Instruction Set Architecture (ISA)
-- Multi-cycle processor architecture
-- FSM-based Control Unit
-- Register File with read/write support
-- ALU supporting arithmetic and logical operations
-- Branch and jump instruction support
-- Functional verification using Verilog testbenches
-- Modular RTL design methodology
+- Multi-Cycle Processor Architecture
+- FSM-Based Control Unit
+- Register File with Read/Write Operations
+- Arithmetic and Logical ALU Operations
+- Branch and Jump Instruction Support
+- Modular RTL Design
+- Functional Verification using Verilog Testbenches
+- FPGA-Oriented Processor Design
+
+---
 
 ## Supported Instructions
-- ADD
-- SUB
-- AND
-- OR
-- XOR
-- NOT
-- LOAD
-- CMP
-- SHL
-- SHR
-- JMPA
-- JMPR
 
-## Tools Used
-- Verilog HDL
-- Xilinx Vivado
+| Category | Instructions |
+|-----------|-------------|
+| Arithmetic | ADD, SUB |
+| Logical | AND, OR, XOR, NOT |
+| Shift Operations | SHL, SHR |
+| Comparison | CMP |
+| Data Transfer | LOAD |
+| Control Flow | JMPA, JMPR |
 
-## Architecture
+---
+
+# Processor Architecture
 
 The processor follows a multi-cycle execution flow:
 
-Instruction Fetch → Decode → Register Read → Execute → Writeback → Memory
-
-### Processor Architecture Diagram
-
-![Processor Architecture](screenshots/architecture_diagram.png)
-
-## Project Structure
-
 ```text
-src/          -> RTL source files
-testbench/    -> Verification testbenches
-screenshots/  -> Simulation waveforms and architecture diagrams
-docs/         -> Additional documentation
+PC Unit
+   ↓
+Instruction Fetch
+   ↓
+Instruction Decode
+   ↓
+Register Read
+   ↓
+ALU Execute
+   ↓
+Register Writeback
+   ↓
+Control FSM
 ```
 
-## Simulation Results
+### Overall Processor Architecture
 
-### Control FSM Sequencing
+![Processor Architecture](screenshots/01_risc_processor_architecture.png)
 
-Shows the multi-cycle control flow of the processor.
+---
 
-![Control FSM Waveform](screenshots/control_fsm_waveform.png)
+# Major Modules
 
-### Datapath Execution
+## Program Counter (PC)
 
-Shows instruction execution, ALU operations, register reads, and program counter updates.
+Maintains instruction sequencing and controls program flow during execution.
 
-![Datapath Execution](screenshots/datapath_execution.png)
+## Instruction Memory
 
-## Key Learnings
+Stores machine instructions and provides instruction fetch functionality.
 
-- FSM-based processor control design
-- Multi-cycle processor execution
-- Custom instruction decoding
-- Register file implementation
-- ALU arithmetic and logical operations
-- Verilog HDL simulation and verification
-- Processor datapath integration
+## Instruction Decoder
 
-## Future Improvements
+Decodes instruction fields and generates required control signals.
 
-- Pipeline architecture
-- Hazard detection and forwarding
-- Expanded instruction memory
-- FPGA hardware deployment
-- SystemVerilog-based verification
-- Cache memory integration
+## Register File
 
-## Author
+Provides operand storage and supports simultaneous read/write operations.
+
+## Arithmetic Logic Unit (ALU)
+
+Performs arithmetic, logical, comparison, and shift operations.
+
+## Control FSM
+
+Controls the execution sequence of instructions using a multi-cycle state machine.
+
+---
+
+# Simulation Results
+
+## Control FSM Verification
+
+Demonstrates the sequencing of processor control signals across multiple execution stages.
+
+![Control FSM](screenshots/02_control_fsm_waveform.png)
+
+---
+
+## Datapath Execution Verification
+
+Shows instruction execution, ALU operations, register accesses, immediate values, and program counter updates.
+
+![Datapath Execution](screenshots/03_datapath_execution.png)
+
+---
+
+## Register File Verification
+
+Validates register write operations, register selection logic, and data retrieval functionality.
+
+![Register File Verification](screenshots/04_register_file_verification.png)
+
+---
+
+## Instruction Decoder Verification
+
+Demonstrates correct decoding of instructions into control signals and immediate fields.
+
+![Instruction Decoder Verification](screenshots/05_instruction_decoder_verification.png)
+
+---
+
+## Full Processor Execution
+
+Complete processor-level verification showing interaction between datapath, ALU, register file, control FSM, and instruction execution flow.
+
+![Full Processor Execution](screenshots/06_full_processor_execution.png)
+
+---
+
+# Tools Used
+
+- Verilog HDL
+- Xilinx Vivado
+- RTL Design Methodology
+- FPGA Design Flow
+- Digital VLSI Design
+
+---
+
+# Repository Structure
+
+```text
+├── src/
+│   ├── RTL Source Files
+│
+├── testbench/
+│   ├── Verification Testbenches
+│
+├── screenshots/
+│   ├── 01_risc_processor_architecture.png
+│   ├── 02_control_fsm_waveform.png
+│   ├── 03_datapath_execution.png
+│   ├── 04_register_file_verification.png
+│   ├── 05_instruction_decoder_verification.png
+│   └── 06_full_processor_execution.png
+│
+└── README.md
+```
+
+---
+
+# Applications
+
+- Embedded Systems
+- Processor Design Education
+- FPGA-Based Computing Systems
+- Computer Architecture Research
+- Digital System Design
+- RTL Design Training
+
+---
+
+# Key Learnings
+
+- Multi-Cycle Processor Architecture Design
+- FSM-Based Control Logic
+- Custom Instruction Set Development
+- Register File Design
+- Instruction Decoding Techniques
+- ALU Design and Integration
+- Processor Datapath Development
+- RTL Verification using Vivado
+- FPGA-Oriented Processor Design
+
+---
+
+# Future Improvements
+
+- Pipelined Processor Architecture
+- Hazard Detection and Forwarding
+- Expanded Instruction Set
+- Data Memory Integration
+- Cache Memory Support
+- FPGA Hardware Deployment
+- SystemVerilog-Based Verification Environment
+
+---
+
+# Author
 
 **Dinesh Vardhan Dundi**
 
-Final-Year Electronics and Communication Engineering Student
+Electronics and Communication Engineering
 
-Interested in RTL Design, FPGA Development, Digital VLSI, Computer Architecture, and Hardware Acceleration.
+### Areas of Interest
+
+- RTL Design
+- FPGA Design
+- Digital VLSI
+- Computer Architecture
+- ASIC Design
+- Hardware Accelerators
+- AI Hardware Systems
